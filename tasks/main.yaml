@@ -1,17 +1,14 @@
 - name: okagent supervisor installed
-  shell: "wget -O - http://download.okmeter.ru/agent/install_supervisor.sh | sudo sh -s - {{okmeter_api_key}}" 
+  shell: "wget -O - http://download.okmeter.ru/agent/install_supervisor.sh | sudo sh -s - {{okmeter_api_token}}" 
   args:
     creates: /usr/local/okagent/supervisor
-  tags: okmeter
 
 - name: okagent config dir
   file: path=/usr/local/okagent/etc/config.d state=directory mode=0750 owner=root group=root
-  tags: okmeter
 
 - name: okagent configs
   template: src={{item}} dest=/usr/local/okagent/etc/config.d/ owner=root mode=644
   with_fileglob:
-  - ../templates/okagent/etc/config.d/*.yaml
+  - configs/*.yaml
   notify:
   - restart okagent
-  tags: okmeter

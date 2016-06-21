@@ -1,13 +1,7 @@
-Okmeter Ansible
+Okmeter Ansible Role
 ========
 
 Install Okmeter agent.
-
-
-Variables
---------------
-
-- `okmeter_api_key` - Your Okmeter API key.
 
 
 Example Playbook
@@ -15,13 +9,6 @@ Example Playbook
 
 ```
 - hosts: servers
-  sudo: yes
-  vars:
-    okmeter_api_key: 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
-
-  tasks:
-  - include: tasks/okmeter.yaml
-
-  handlers:
-  - include: handlers/okmeter.yaml
+  roles:
+  - { role: okmeter, sudo: yes, okmeter_api_token: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" }
 ```
