@@ -1,0 +1,2 @@
+- name: restart okagent
+  action: service name=okagent state=restarted
