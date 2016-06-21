@@ -1,14 +1,15 @@
-Okmeter Ansible Role
+Okmeter Ansible role
 ========
 
-Install Okmeter agent.
+Install [Okmeter.io](https://Okmeter.io) agent.
 
 
-Example Playbook
+Playbook example
 --------------
 
 ```
-- hosts: servers
+- hosts: ...
   roles:
-  - { role: okmeter, sudo: yes, okmeter_api_token: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" }
+  - { role: okmeter, sudo: yes, okmeter_api_token: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" } 
+  # you can find api token for your project @ Docs on okmeter.io/your_project_name/
 ```
